@@ -1,0 +1,46 @@
+<html>
+<head>
+
+</head>
+
+<body>
+  <script type="text/javascript">
+  function calculate()
+  {
+
+    var names=document.getElementById("Names").value;
+    var rno=document.getElementById("rno").value;
+    var year=document.getElementById("year").value;
+    var school=document.getElementById("school").value;
+    var schools={"BCE":"SCOPE","BCM":"SENSE","BEE":"SELECT"};
+    if(rno.slice(0,2)!=year.slice(2,4))
+    {
+      alert("Year of join and Enrollment Number data not matching, Please enter again.");
+    }
+    if(schools[rno.slice(2,5)]!=school)
+    {
+      alert("School data and Enrolment number data is not matching, Please enter again.");
+    }
+    if(rno.slice(0,2)==year.slice(2,4) && schools[rno.slice(2,5)]==school)
+    {
+    document.write("Details successfully submitted.The details are:");
+    document.write("<br/>",names);
+    document.write("<br/>",rno);
+    document.write("<br/>",year);
+    document.write("<br/>",school);
+    }
+  }
+  </script>
+<form>
+  <!-- <label for="fname">Name:</label><br> -->
+  <input type="text" id="Names" name="Names" placeholder="Name"><br>
+  <label for="fname">Register No:</label><br>
+  <input type="text" id="rno" name="rno" placeholder="19BCEXXXX"><br>
+  <label for="fname">Year Of Joining:</label><br>
+  <input type="text" id="year" placeholder="2019"><br>
+  <label for="fname">School:</label><br>
+  <input type="text" id="school" placeholder="SCOPE"><br>
+  <input type="submit" onclick="calculate()" >
+</form>
+</body>
+</html>

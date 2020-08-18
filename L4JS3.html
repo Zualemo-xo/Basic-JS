@@ -1,0 +1,22 @@
+<html>
+<head>
+  <script>
+
+      var name= prompt("Enter Your Name:");
+      var dob= prompt("Enter your DOB(MM/DD/YYYY):");
+      var d=new Date(dob);
+      var today=new Date();
+      //document.write(new Date());
+      var day=d.getDate();
+      var age=today.getYear()-d.getYear();
+      if(today.getMonth()-d.getMonth()>0)
+      {var b_month=today.getMonth()-d.getMonth();}
+      else
+      {
+        var b_month=12+today.getMonth()-d.getMonth();
+      }
+
+      document.write(name," was born in ",d.getFullYear(), " and is ",age," years,",b_month," month(s) old.");
+  </script>
+</head>
+</html>
