@@ -1,0 +1,65 @@
+
+  <html>
+  <head>
+  <meta charset=utf-8 />
+  <script>
+  var xmas= prompt("Enter your date(MM/DD/YYYY):");
+  //try
+  var month_days=["31","28","31","30","31","30","31","31","30","31","30","31"];
+  imonth=xmas.slice(0,2);
+  iday=xmas.slice(3,5);
+  iyear=xmas.slice(6,10);
+  /*document.write(imonth);
+  document.write(iday);
+  document.write(iyear);*/
+  //Validation
+  if(imonth>12 || imonth<=0 || iday<=0 || iyear<0)
+  {
+    document.write("Invalid Date");
+  }
+  else
+  {
+
+
+  if((iyear%4)==0 && (iyear%100)!=0)
+  {
+    month_days[1]=29;
+  }
+  else if((iyear%100)==0 && (iyear%400)!=0 )
+  {
+    month_days[1]=28;
+  }
+  else if((iyear%400)==0)
+  {
+    month_days[1]=29;
+  }
+  //document.write(month_days);
+
+  if(month_days[imonth-1]<iday)
+  {
+    document.write("Invalid Date");
+  }
+  else
+  {
+
+  today=new Date(xmas);
+  var cmas=new Date(today.getFullYear(), 11, 25);
+  if (today.getMonth()==11 && today.getDate()>25)
+  {
+  document.write(today.getDate()-25, " days have passed since Christmas");
+  }
+  else
+   {
+  var one_day=1000*60*60*24;
+  document.write(Math.ceil((cmas.getTime()-today.getTime())/(one_day))+
+  " days left until Christmas!");
+  }
+
+  }
+
+
+  }
+  </script>
+  <title>Days left until next Christmas</title>
+  </head>
+  </html>
